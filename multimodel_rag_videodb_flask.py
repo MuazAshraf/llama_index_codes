@@ -20,8 +20,7 @@ app.config['SCENE_INDEX_IDS'] = {}
 def get_connection():
     conn = connect()
     return conn
-    
-# get all the videos from the Video Database
+
 @app.route('/videos', methods=['GET'])
 def list_videos():
     """Get all videos from collection"""
@@ -35,7 +34,6 @@ def list_videos():
     
     return jsonify({"videos": videos_list})
 
-# get single video from the Video Database
 @app.route("/video/<id>", methods=["GET"])
 def get_video(id):
     """
@@ -61,7 +59,6 @@ def get_video(id):
     }
     return response
 
-# Uplaod the video into the Video Database
 @app.route('/upload', methods=['POST'])
 def upload_video():
     """Upload a video URL and index it"""
@@ -104,7 +101,6 @@ def upload_video():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Once the Video is uploaded you can retrieve data about the videos you uploaded you don't have to upload it again.  
 @app.route('/query', methods=['POST'])
 def query_video():
     """Query an indexed video by title"""
