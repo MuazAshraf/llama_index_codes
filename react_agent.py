@@ -23,7 +23,7 @@ def search(query:str) -> str:
   return context
 
 search_tool = FunctionTool.from_defaults(fn=search)
-mistral_api = "your mistral API key"
+mistral_api = "aPS8Usmu3VjfVoJ0D7ehIdr0HmFYDOu7"
 
 llm = MistralAI(model="mistral-large-latest",api_key=mistral_api)
 agent = ReActAgent.from_tools([search_tool], llm=llm, verbose=True,allow_parallel_tool_calls=True)
